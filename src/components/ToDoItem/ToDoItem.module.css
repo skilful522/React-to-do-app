@@ -1,4 +1,4 @@
-.todoItem {
+.toDoItem {
     display: flex;
     justify-content: space-between;
 }
@@ -10,7 +10,7 @@
     background: snow;
 }
 
-.task-date-container {
+.taskDateContainer {
     display: flex;
     width: 1100px;
 }

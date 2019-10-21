@@ -3,20 +3,32 @@ import style from './App.module.css';
 import {Header} from "./components/Header/Header";
 import {ToDoList} from "./components/ToDoList/ToDoList";
 import {NewToDoItem} from "./components/NewToDoItem/NewToDoItem";
-import moment from 'moment'
 
 class App extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            toDoItems: []
+        };
+    }
 
-  render() {
-      const date = moment().format('YYYY-MM-DD');
-    return (
-        <div id={style['main-container']}>
-          <Header/>
-          <ToDoList/>
-          <NewToDoItem date={date}/>
-        </div>
-    );
-  }
+    handleAddNewToDoItem = newToDoItem => {
+        this.setState(oldState => {
+            return {
+                toDoItems: [newToDoItem].concat(oldState.toDoItems)
+            }
+        })
+    };
+
+    render() {
+        return (
+            <div id={style['main-container']}>
+                <Header/>
+                <ToDoList toDoItems={this.state.toDoItems}/>
+                <NewToDoItem onAddNewToDoItem={this.handleAddNewToDoItem}/>
+            </div>
+        );
+    }
 }
 
 export default App;

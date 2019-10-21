@@ -1,4 +1,4 @@
-.new-todo-item{
+.newToDoItem{
     display: flex;
     justify-content: space-between;
 }
@@ -8,7 +8,7 @@ input{
     border: none;
 }
 
-.add-button {
+.addButton {
     width: 25%;
     font-size: 30px;
     cursor: pointer;
@@ -17,5 +17,10 @@ input{
     border: none;
     text-transform: uppercase;
     position: relative;
+}
+
+.addButton:disabled{
+    background: #CCC;
+    color: #999;
 }
 

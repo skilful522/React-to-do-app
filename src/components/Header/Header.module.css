@@ -7,10 +7,10 @@
     color: cornflowerblue;
 }
 
-#first-letter, #third-letter, #fifth-letter{
+#firstLetter, #thirdLetter, #fifthLetter{
     color: violet;
 }
 
-#second-letter, #fourth-letter {
+#secondLetter, #fourthLetter {
     color: blueviolet;
 }

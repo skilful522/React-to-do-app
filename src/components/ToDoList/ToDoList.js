@@ -1,13 +1,18 @@
 import React from 'react'
-import style from'./toDoList.module.css'
+import style from './ToDoList.module.css'
 import {ToDoItem} from "../ToDoItem/ToDoItem";
 
 class ToDoList extends React.Component {
     render() {
         return (
             <div id={style['toDoList']}>
-                <ToDoItem/>
-                <ToDoItem/>
+                {this.props.toDoItems.map((item, index) => {
+                    return <ToDoItem
+                        text={item.inputValue}
+                        date={item.dateValue}
+                        key={index}
+                        id={index}/>
+                })}
             </div>
         );
     }
