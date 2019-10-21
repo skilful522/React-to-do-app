@@ -1,0 +1,21 @@
+.new-todo-item{
+    display: flex;
+    justify-content: space-between;
+}
+
+input{
+    width: 80%;
+    border: none;
+}
+
+.add-button {
+    width: 25%;
+    font-size: 30px;
+    cursor: pointer;
+    color: black;
+    background: none;
+    border: none;
+    text-transform: uppercase;
+    position: relative;
+}
+
