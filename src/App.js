@@ -5,12 +5,9 @@ import {ToDoList} from "./components/ToDoList/ToDoList";
 import {NewToDoItem} from "./components/NewToDoItem/NewToDoItem";
 
 class App extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            toDoItems: []
-        };
-    }
+        state = {
+        toDoItems: []
+    };
 
     handleAddNewToDoItem = newToDoItem => {
         this.setState(oldState => {
