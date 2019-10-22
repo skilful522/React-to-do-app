@@ -1,0 +1,35 @@
+.todoItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.toDoText,
+.toDoDate {
+  text-align: center;
+  width: 80%;
+  border: 1px solid blanchedalmond;
+  background: snow;
+}
+
+.task-date-container {
+  display: flex;
+  width: 1100px;
+}
+
+.doneToDo,
+.removeToDo {
+  width: 12.5%;
+  font-size: 1.1em;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background: none;
+}
+
+.doneToDo {
+  color: green;
+}
+
+.removeToDo {
+  color: red;
+}
