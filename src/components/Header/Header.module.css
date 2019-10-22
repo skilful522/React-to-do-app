@@ -1,16 +1,19 @@
-.header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    font-family: "Comic Sans MS";
-    color: cornflowerblue;
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  font-family: "Comic Sans MS";
+  color: cornflowerblue;
 }
 
-#firstLetter, #thirdLetter, #fifthLetter{
-    color: violet;
+#first-letter,
+#third-letter,
+#fifth-letter {
+  color: violet;
 }
 
-#secondLetter, #fourthLetter {
-    color: blueviolet;
+#second-letter,
+#fourth-letter {
+  color: blueviolet;
 }

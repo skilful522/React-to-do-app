@@ -1,21 +1,16 @@
-import React from 'react'
-import style from './ToDoList.module.css'
-import {ToDoItem} from "../ToDoItem/ToDoItem";
+import React from "react";
+import { ToDoItem } from "../ToDoItem/ToDoItem";
 
-class ToDoList extends React.Component {
-    render() {
+function ToDoList(props) {
+  return (
+    <div id="toDoList">
+      {props.toDoItems.map((item, index) => {
         return (
-            <div id={style['toDoList']}>
-                {this.props.toDoItems.map((item, index) => {
-                    return <ToDoItem
-                        text={item.inputValue}
-                        date={item.dateValue}
-                        key={index}
-                        id={index}/>
-                })}
-            </div>
+          <ToDoItem text={item.inputValue} date={item.dateValue} key={index} />
         );
-    }
+      })}
+    </div>
+  );
 }
 
-export {ToDoList}
+export { ToDoList };

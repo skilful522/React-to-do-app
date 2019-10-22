@@ -1,33 +1,35 @@
 .toDoItem {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
-.toDoText, .toDoDate {
-    text-align: center;
-    width: 80%;
-    border: 1px solid blanchedalmond;
-    background: snow;
+.toDoText,
+.toDoDate {
+  text-align: center;
+  width: 80%;
+  border: 1px solid blanchedalmond;
+  background: snow;
 }
 
-.taskDateContainer {
-    display: flex;
-    width: 1100px;
+.task-date-container {
+  display: flex;
+  width: 1100px;
 }
 
-.doneToDo, .removeToDo {
-    width: 12.5%;
-    font-size: 1.1em;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    background: none;
+.doneToDo,
+.removeToDo {
+  width: 12.5%;
+  font-size: 1.1em;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background: none;
 }
 
 .doneToDo {
-    color: green;
+  color: green;
 }
 
 .removeToDo {
-    color: red;
+  color: red;
 }

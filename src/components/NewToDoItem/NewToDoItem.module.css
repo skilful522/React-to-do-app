@@ -1,26 +1,24 @@
-.newToDoItem{
-    display: flex;
-    justify-content: space-between;
+.new-todo-item {
+  display: flex;
+  justify-content: space-between;
 }
 
-input{
-    width: 80%;
-    border: none;
+input {
+  width: 80%;
+  border: none;
 }
 
-.addButton {
-    width: 25%;
-    font-size: 30px;
-    cursor: pointer;
-    color: black;
-    background: none;
-    border: none;
-    text-transform: uppercase;
-    position: relative;
+.add-button {
+  width: 25%;
+  font-size: 30px;
+  cursor: pointer;
+  color: black;
+  background: none;
+  border: none;
+  text-transform: uppercase;
+  position: relative;
 }
-
-.addButton:disabled{
-    background: #CCC;
-    color: #999;
+.add-button:disabled {
+  background-color: #cccccc;
+  color: #666666;
 }
-
