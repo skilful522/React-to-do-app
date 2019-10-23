@@ -3,15 +3,20 @@ import PropTypes from "prop-types";
 import style from "./NewToDoItem.module.css";
 import moment from "moment";
 import { ToDoInput } from "./ToDoInput/ToDoInput";
+import uuidv4 from "uuid/v4";
 
 class NewToDoItem extends React.Component {
   state = {
     inputValue: "",
-    dateValue: moment().format("YYYY-MM-DD")
+    dateValue: moment().format("YYYY-MM-DD"),
+    id: "",
+    key: ""
   };
 
   getInputValue = event => {
     this.setState({ [event.target.name]: event.target.value });
+    this.setState({ id: Date.now() });
+    this.setState({ key: uuidv4() });
   };
 
   validate = () => !!this.state.inputValue.trim();
@@ -21,24 +26,21 @@ class NewToDoItem extends React.Component {
   };
 
   addButtonHandler = () => {
-    const { inputValue, dateValue } = this.state;
+    const { inputValue, dateValue, id, isChecked, key } = this.state;
 
-    this.props.onAddNewToDoItem({ inputValue, dateValue });
+    this.props.onAddNewToDoItem({ inputValue, dateValue, id, isChecked, key });
     this.onReset();
   };
-
   render() {
     return (
       <div className={style["new-todo-item"]}>
         <ToDoInput
-          className={"toDoInputText"}
           autoFocus
           value={this.state.inputValue}
           name="inputValue"
           onChange={this.getInputValue}
         />
         <ToDoInput
-          className={style["toDoInputDate"]}
           type="date"
           name="dateValue"
           onChange={this.getInputValue}

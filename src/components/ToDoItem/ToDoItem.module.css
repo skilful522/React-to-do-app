@@ -12,8 +12,20 @@
 }
 
 .task-date-container {
-  display: flex;
   width: 1100px;
+  position: relative;
+  display: flex;
+}
+
+.task-date-container-cross::before {
+  content: "";
+  position: absolute;
+  background: red;
+  display: block;
+  width: 95%;
+  top: 50%;
+  left: 10px;
+  height: 5px;
 }
 
 .doneToDo,

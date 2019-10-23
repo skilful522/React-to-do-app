@@ -8,7 +8,7 @@ import "./App.css";
 function App() {
   const [oldValue, setValue] = useState([]);
   const handleAddNewToDoItem = newToDoItem =>
-    setValue(oldValue => [...oldValue, newToDoItem]);
+    setValue(oldValue => [newToDoItem, ...oldValue]);
 
   return (
     <div id="mainContainer">
@@ -18,4 +18,5 @@ function App() {
     </div>
   );
 }
+
 export default App;
