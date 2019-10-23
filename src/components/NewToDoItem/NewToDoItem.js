@@ -5,27 +5,16 @@ import moment from "moment";
 import { ToDoInput } from "./ToDoInput/ToDoInput";
 
 class NewToDoItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      inputValue: "",
-      dateValue: moment().format("YYYY-MM-DD")
-    };
-  }
+  state = {
+    inputValue: "",
+    dateValue: moment().format("YYYY-MM-DD")
+  };
 
   getInputValue = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  validate = () => {
-    const { inputValue } = this.state;
-
-    if (inputValue.trim()) {
-      return true;
-    } else {
-      return false;
-    }
-  };
+  validate = () => !!this.state.inputValue.trim();
 
   onReset = () => {
     this.setState({ inputValue: "" });

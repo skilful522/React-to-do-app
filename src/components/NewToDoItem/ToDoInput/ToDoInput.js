@@ -1,15 +1,13 @@
 import React from "react";
 
-function ToDoInput(props) {
-  return (
-    <input
-      value={props.value}
-      type={props.type}
-      name={props.name}
-      autoFocus={props.autoFocus}
-      onChange={props.onChange}
-    />
-  );
-}
+const ToDoInput = props => (
+  <input
+    value={props.value}
+    type={props.type}
+    name={props.name}
+    autoFocus={props.autofocus}
+    onChange={props.onChange}
+  />
+);
 
 export { ToDoInput };
