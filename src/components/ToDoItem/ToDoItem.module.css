@@ -1,4 +1,4 @@
-.todoItem {
+.toDoItem {
   display: flex;
   justify-content: space-between;
 }

@@ -1,14 +1,13 @@
 import React from "react";
-import style from "./toDoList.module.css";
 import { ToDoItem } from "../ToDoItem/ToDoItem";
+import uuidv4 from "uuid/v4";
 
-function ToDoList() {
-  return (
-    <div id={style["toDoList"]}>
-      <ToDoItem />
-      <ToDoItem />
-    </div>
-  );
-}
+const ToDoList = props => (
+  <div id="toDoList">
+    {props.toDoItems.map(item => (
+      <ToDoItem text={item.inputValue} date={item.dateValue} key={uuidv4()} />
+    ))}
+  </div>
+);
 
 export { ToDoList };

@@ -1,17 +1,24 @@
 import React from "react";
-import style from "./toDoItem.module.css";
+import style from "./ToDoItem.module.css";
 
-function ToDoItem() {
-  return (
-    <div className={style["todoItem"]}>
-      <div className={style["task-date-container"]}>
-        <div className={style["toDoText"]}>ToDoText</div>
-        <div className={style["toDoDate"]}>ToDoTime</div>
+class ToDoItem extends React.Component {
+  state = {
+    id: Date.now()
+  };
+
+  render() {
+    const { text, date } = this.props;
+    return (
+      <div className={style["toDoItem"]}>
+        <div className={style["task-date-container"]} id={this.state.id}>
+          <div className={style["toDoText"]}>{text}</div>
+          <div className={style["toDoDate"]}>{date}</div>
+        </div>
+        <button className={style["doneToDo"]}>✓</button>
+        <button className={style["removeToDo"]}>✖</button>
       </div>
-      <button className={style["doneToDo"]}>✓</button>
-      <button className={style["removeToDo"]}>✖</button>
-    </div>
-  );
+    );
+  }
 }
 
 export { ToDoItem };
