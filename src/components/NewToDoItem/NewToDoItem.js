@@ -26,9 +26,9 @@ class NewToDoItem extends React.Component {
   };
 
   addButtonHandler = () => {
-    const { inputValue, dateValue, id, isChecked, key } = this.state;
+    const { inputValue, dateValue, id, key } = this.state;
 
-    this.props.onAddNewToDoItem({ inputValue, dateValue, id, isChecked, key });
+    this.props.onAddNewToDoItem({ inputValue, dateValue, id, key });
     this.onReset();
   };
   render() {

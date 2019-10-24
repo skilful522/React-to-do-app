@@ -3,11 +3,24 @@ import style from "./ToDoItem.module.css";
 
 class ToDoItem extends React.Component {
   state = {
-    isChecked: false
+    isChecked: false,
+    isRemove: false
   };
 
   checkItem = () => {
     this.setState({ isChecked: true });
+  };
+
+  removeItem = () => {
+    const toDoItems = this.props.toDoItems;
+    this.setState({ isRemove: true });
+    toDoItems.forEach(item => {
+      if (item.id === this.props.id) {
+        toDoItems.splice(toDoItems.indexOf(item), 1);
+      }
+    });
+    this.setState({ toDoItems: toDoItems });
+    this.props.update({ toDoItems });
   };
 
   getTaskDateContainer = () => {
@@ -17,9 +30,8 @@ class ToDoItem extends React.Component {
 
     if (isChecked) {
       return taskDateContainer + " " + taskDateContainerCross;
-    } else {
-      return taskDateContainer;
     }
+    return taskDateContainer;
   };
 
   render() {
@@ -34,7 +46,9 @@ class ToDoItem extends React.Component {
         <button className={style["doneToDo"]} onClick={this.checkItem}>
           ✓
         </button>
-        <button className={style["removeToDo"]}>✖</button>
+        <button className={style["removeToDo"]} onClick={this.removeItem}>
+          ✖
+        </button>
       </div>
     );
   }
