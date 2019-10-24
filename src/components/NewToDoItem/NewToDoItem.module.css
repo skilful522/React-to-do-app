@@ -18,3 +18,7 @@ input {
   text-transform: uppercase;
   position: relative;
 }
+.add-button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+}

@@ -1,17 +1,20 @@
 import React from "react";
+import { useState } from "react";
 import { Header } from "./components/Header/Header";
 import { ToDoList } from "./components/ToDoList/ToDoList";
 import { NewToDoItem } from "./components/NewToDoItem/NewToDoItem";
-import './App.css'
-import moment from "moment";
+import "./App.css";
 
 function App() {
-  const date = moment().format("YYYY-MM-DD");
+  const [oldValue, setValue] = useState([]);
+  const handleAddNewToDoItem = newToDoItem =>
+    setValue(oldValue => [newToDoItem, ...oldValue]);
+
   return (
     <div id="mainContainer">
       <Header />
-      <ToDoList />
-      <NewToDoItem date={date} />
+      <ToDoList toDoItems={oldValue} />
+      <NewToDoItem onAddNewToDoItem={handleAddNewToDoItem} />
     </div>
   );
 }

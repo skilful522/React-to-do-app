@@ -1,30 +1,65 @@
 import React from "react";
-import style from "./newToDoItem.module.css";
+import PropTypes from "prop-types";
+import style from "./NewToDoItem.module.css";
+import moment from "moment";
+import { ToDoInput } from "./ToDoInput/ToDoInput";
+import uuidv4 from "uuid/v4";
 
 class NewToDoItem extends React.Component {
   state = {
-    text: ""
+    inputValue: "",
+    dateValue: moment().format("YYYY-MM-DD"),
+    id: "",
+    key: ""
   };
 
-  getTextValue = event => {
-    this.setState({ text: event.currentTarget.value });
+  getInputValue = event => {
+    this.setState({ [event.target.name]: event.target.value });
+    this.setState({ id: Date.now() });
+    this.setState({ key: uuidv4() });
   };
 
+  validate = () => !!this.state.inputValue.trim();
+
+  onReset = () => {
+    this.setState({ inputValue: "" });
+  };
+
+  addButtonHandler = () => {
+    const { inputValue, dateValue, id, isChecked, key } = this.state;
+
+    this.props.onAddNewToDoItem({ inputValue, dateValue, id, isChecked, key });
+    this.onReset();
+  };
   render() {
-    const { date } = this.props.date;
     return (
       <div className={style["new-todo-item"]}>
-        <input
-          className={style["toDo-input-text"]}
-          onChange={this.getTextValue}
+        <ToDoInput
+          autoFocus
+          value={this.state.inputValue}
+          name="inputValue"
+          onChange={this.getInputValue}
         />
-        <input className={style["toDo-input-date"]} type="date">
-          {date}
-        </input>
-        <button className={style["add-button"]}>add</button>
+        <ToDoInput
+          type="date"
+          name="dateValue"
+          onChange={this.getInputValue}
+          value={this.state.dateValue}
+        />
+        <button
+          className={style["add-button"]}
+          disabled={!this.validate()}
+          onClick={this.addButtonHandler}
+        >
+          add
+        </button>
       </div>
     );
   }
 }
+
+NewToDoItem.propTypes = {
+  onAddNewToDoItem: PropTypes.func.isRequired
+};
 
 export { NewToDoItem };
