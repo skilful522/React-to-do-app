@@ -13,6 +13,7 @@ class ToDoItem extends React.Component {
 
   removeItem = () => {
     const toDoItems = this.props.toDoItems;
+
     this.setState({ isRemove: true });
     toDoItems.forEach(item => {
       if (item.id === this.props.id) {
