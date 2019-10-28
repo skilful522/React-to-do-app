@@ -9,12 +9,10 @@ function Filter(props) {
 
       if (event.target.value || event.target.value === "") {
         filteredToDoItems = props.toDoItems.filter(toDoItem => {
-          if (toDoItem[inputType].indexOf(event.target.value) >= 0) {
-            return (toDoItem.isFiltered = true);
-          } else if (event.target.value === "") {
-            return (toDoItem.isFiltered = true);
-          } else {
+          if (toDoItem[inputType].indexOf(event.target.value) < 0) {
             return (toDoItem.isFiltered = false);
+          } else {
+            return (toDoItem.isFiltered = true);
           }
         });
       }

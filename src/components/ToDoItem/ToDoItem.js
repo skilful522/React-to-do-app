@@ -12,10 +12,9 @@ class ToDoItem extends React.Component {
     toDoItems.forEach(item => {
       if (item.id === this.props.id) {
         item.isChecked = true;
-        item.className =
-          style["task-date-container"] +
-          " " +
-          style["task-date-container-cross"];
+        item.className = `${style["taskDateContainer"]} ${
+          style["task-date-container-cross"]
+        }`;
       }
     });
     this.props.update({ toDoItems });

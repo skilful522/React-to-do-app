@@ -21,7 +21,6 @@ function App() {
   const handleFiltering = filteredToDoItems => {
     setFilteredList([...filteredToDoItems]);
   };
-
   const getFilterTextValue = textValue => setInputFilterValue(textValue);
   const getFilterDateValue = dateValue => setDateFilterValue(dateValue);
 

@@ -11,7 +11,7 @@ class NewToDoItem extends React.Component {
     dateValue: moment().format("YYYY-MM-DD"),
     id: "",
     key: "",
-    className: 'ToDoItem_task-date-container__36cuE',
+    className: style.taskDateContainer,
     isFiltered: true,
     isChecked: false
   };
@@ -36,7 +36,7 @@ class NewToDoItem extends React.Component {
       key,
       className,
       isFiltered,
-      isChecked,
+      isChecked
     } = this.state;
 
     this.props.onAddNewToDoItem({
