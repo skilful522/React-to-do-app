@@ -10,13 +10,11 @@
   border: 1px solid blanchedalmond;
   background: snow;
 }
-
-.task-date-container {
+.taskDateContainer {
   width: 1100px;
   position: relative;
   display: flex;
 }
-
 .task-date-container-cross::before {
   content: "";
   position: absolute;

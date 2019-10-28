@@ -10,7 +10,10 @@ class NewToDoItem extends React.Component {
     inputValue: "",
     dateValue: moment().format("YYYY-MM-DD"),
     id: "",
-    key: ""
+    key: "",
+    className: style.taskDateContainer,
+    isFiltered: true,
+    isChecked: false
   };
 
   getInputValue = event => {
@@ -26,9 +29,25 @@ class NewToDoItem extends React.Component {
   };
 
   addButtonHandler = () => {
-    const { inputValue, dateValue, id, key } = this.state;
+    const {
+      inputValue,
+      dateValue,
+      id,
+      key,
+      className,
+      isFiltered,
+      isChecked
+    } = this.state;
 
-    this.props.onAddNewToDoItem({ inputValue, dateValue, id, key });
+    this.props.onAddNewToDoItem({
+      inputValue,
+      dateValue,
+      id,
+      key,
+      className,
+      isFiltered,
+      isChecked
+    });
     this.onReset();
   };
   render() {
