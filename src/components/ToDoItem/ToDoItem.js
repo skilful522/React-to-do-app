@@ -3,12 +3,22 @@ import style from "./ToDoItem.module.css";
 
 class ToDoItem extends React.Component {
   state = {
-    isChecked: false,
     isRemove: false
   };
 
   checkItem = () => {
-    this.setState({ isChecked: true });
+    const toDoItems = this.props.toDoItems;
+
+    toDoItems.forEach(item => {
+      if (item.id === this.props.id) {
+        item.isChecked = true;
+        item.className =
+          style["task-date-container"] +
+          " " +
+          style["task-date-container-cross"];
+      }
+    });
+    this.props.update({ toDoItems });
   };
 
   removeItem = () => {
@@ -20,27 +30,14 @@ class ToDoItem extends React.Component {
         toDoItems.splice(toDoItems.indexOf(item), 1);
       }
     });
-    this.setState({ toDoItems: toDoItems });
     this.props.update({ toDoItems });
-  };
-
-  getTaskDateContainer = () => {
-    const { isChecked } = this.state;
-    const taskDateContainer = style["task-date-container"];
-    const taskDateContainerCross = style["task-date-container-cross"];
-
-    if (isChecked) {
-      return taskDateContainer + " " + taskDateContainerCross;
-    }
-    return taskDateContainer;
   };
 
   render() {
     const { text, date } = this.props;
-
     return (
       <div className={style["toDoItem"]}>
-        <div className={this.getTaskDateContainer()}>
+        <div className={this.props.className}>
           <div className={style["toDoText"]}>{text}</div>
           <div className={style["toDoDate"]}>{date}</div>
         </div>

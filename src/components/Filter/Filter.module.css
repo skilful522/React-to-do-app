@@ -1,0 +1,16 @@
+#filterInput,
+#filterDate {
+  color: black;
+}
+
+::placeholder {
+  text-align: center;
+}
+
+#multiFilter {
+  font-size: 19px;
+  cursor: pointer;
+  color: #218294;
+  border: none;
+  position: relative;
+}
