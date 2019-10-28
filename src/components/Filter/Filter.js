@@ -11,9 +11,8 @@ function Filter(props) {
         filteredToDoItems = props.toDoItems.filter(toDoItem => {
           if (toDoItem[inputType].indexOf(event.target.value) < 0) {
             return (toDoItem.isFiltered = false);
-          } else {
-            return (toDoItem.isFiltered = true);
           }
+          return (toDoItem.isFiltered = true);
         });
       }
       props.onFiltering(filteredToDoItems);
