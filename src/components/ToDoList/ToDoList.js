@@ -6,7 +6,7 @@ function ToDoList(props) {
   const [oldValue, setValue] = useState(props.toDoItems);
   const updateToDoList = newToDoList => {
     props.onChange(newToDoList);
-    return setValue([newToDoList]);
+    setValue([newToDoList]);
   };
 
   return (

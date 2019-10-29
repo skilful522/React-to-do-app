@@ -18,7 +18,7 @@ function App() {
     untouchedList.push(newToDoItem);
     localStorage.setItem("untouchedList", JSON.stringify(untouchedList));
     let storedTasks = JSON.parse(localStorage.getItem("untouchedList"));
-    return setValue(storedTasks);
+    setValue(storedTasks);
   };
   const handleSorting = sortedToDoItems => {
     setValue([...sortedToDoItems]);
