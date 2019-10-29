@@ -54,7 +54,6 @@ class NewToDoItem extends React.Component {
     return (
       <div className={style["new-todo-item"]}>
         <ToDoInput
-          autoFocus
           value={this.state.inputValue}
           name="inputValue"
           onChange={this.getInputValue}

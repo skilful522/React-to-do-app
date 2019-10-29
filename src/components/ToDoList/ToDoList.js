@@ -5,7 +5,8 @@ import { ToDoItem } from "../ToDoItem/ToDoItem";
 function ToDoList(props) {
   const [oldValue, setValue] = useState(props.toDoItems);
   const updateToDoList = newToDoList => {
-    return setValue([newToDoList]);
+    props.onChange(newToDoList);
+    setValue([newToDoList]);
   };
 
   return (

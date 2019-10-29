@@ -5,7 +5,6 @@ const ToDoInput = props => (
     value={props.value}
     type={props.type}
     name={props.name}
-    autoFocus={props.autofocus}
     onChange={props.onChange}
   />
 );
