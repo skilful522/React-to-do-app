@@ -1,0 +1,21 @@
+#sort-buttons-container {
+  width: 86%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#sortAlphabet,
+#sortDate {
+  cursor: pointer;
+  color: #218294;
+  border: 1px solid #218294;
+  text-transform: uppercase;
+}
+#sortAlphabet {
+  padding: 0 6px;
+}
+
+#sortDate {
+  margin-right: 95px;
+  padding: 0 40px;
+}
