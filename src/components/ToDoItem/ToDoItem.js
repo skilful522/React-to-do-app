@@ -8,7 +8,6 @@ class ToDoItem extends React.Component {
 
   checkItem = () => {
     const toDoItems = this.props.toDoItems;
-
     toDoItems.forEach(item => {
       if (item.id === this.props.id) {
         item.isChecked = true;
@@ -17,6 +16,7 @@ class ToDoItem extends React.Component {
         }`;
       }
     });
+    localStorage.setItem("untouchedList", JSON.stringify(toDoItems));
     this.props.update({ toDoItems });
   };
 
@@ -29,6 +29,7 @@ class ToDoItem extends React.Component {
         toDoItems.splice(toDoItems.indexOf(item), 1);
       }
     });
+    localStorage.setItem("untouchedList", JSON.stringify(toDoItems));
     this.props.update({ toDoItems });
   };
 

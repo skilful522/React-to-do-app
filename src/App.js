@@ -13,13 +13,22 @@ function App() {
   const [inputFilterValue, setInputFilterValue] = useState("");
   const [dateFilterValue, setDateFilterValue] = useState("");
   const [filteredList, setFilteredList] = useState(toDoItems);
-  const handleAddNewToDoItem = newToDoItem =>
-    setValue(toDoItems => [newToDoItem, ...toDoItems]);
+  const [untouchedList, setUntouchedList] = useState([]);
+  const handleAddNewToDoItem = newToDoItem => {
+    untouchedList.push(newToDoItem);
+    localStorage.setItem("untouchedList", JSON.stringify(untouchedList));
+    let storedTasks = JSON.parse(localStorage.getItem("untouchedList"));
+    return setValue(storedTasks);
+  };
   const handleSorting = sortedToDoItems => {
     setValue([...sortedToDoItems]);
   };
   const handleFiltering = filteredToDoItems => {
     setFilteredList([...filteredToDoItems]);
+  };
+  const getChangedList = () => {
+    let storedTasks = JSON.parse(localStorage.getItem("untouchedList"));
+    setUntouchedList(storedTasks);
   };
   const getFilterTextValue = textValue => setInputFilterValue(textValue);
   const getFilterDateValue = dateValue => setDateFilterValue(dateValue);
@@ -27,7 +36,7 @@ function App() {
   return (
     <div id="mainContainer">
       <Header />
-      <ToDoList toDoItems={toDoItems} />
+      <ToDoList toDoItems={toDoItems} onChange={getChangedList} />
       <NewToDoItem onAddNewToDoItem={handleAddNewToDoItem} />
       <div id="sortButtonsContainer">
         <Sorter
